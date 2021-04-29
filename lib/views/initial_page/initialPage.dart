@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/theme/appColors.dart';
+import 'package:space_app/theme/themeData.dart';
 import 'package:space_app/views/interfacePage.dart';
 
 class InitialPage extends StatefulWidget implements InterfacePage {
-  
   Icon _pageIcon = Icon(Icons.add_box);
   String _pageName = 'Initial';
 
@@ -20,7 +21,10 @@ class _InitialPageState extends State<InitialPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(child: Text('SpaceApp')),
+      color: AppTheme.theme.backgroundColor,
+      child: Center(
+          child:
+              Text('SpaceApp', style: TextStyle(color: AppColors.secondary, fontSize: 64))),
     );
   }
 }
