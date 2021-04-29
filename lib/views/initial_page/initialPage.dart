@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:space_app/views/interfacePage.dart';
 
 class InitialPage extends StatefulWidget implements InterfacePage {
-  @override
+  
   Icon _pageIcon = Icon(Icons.add_box);
-  @override
   String _pageName = 'Initial';
 
   @override
