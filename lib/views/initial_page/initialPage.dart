@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/views/interfacePage.dart';
+import 'package:space_app/views/postCard.dart';
 
 class InitialPage extends StatefulWidget implements InterfacePage {
   @override
@@ -21,7 +22,10 @@ class _InitialPageState extends State<InitialPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(child: Text('SpaceApp')),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: PostCard(),
+      ),
     );
   }
 }
