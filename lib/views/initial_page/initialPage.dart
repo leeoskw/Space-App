@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:space_app/theme/appColors.dart';
 import 'package:space_app/theme/themeData.dart';
 import 'package:space_app/views/interfacePage.dart';
+import 'package:space_app/views/postCard.dart';
 
 class InitialPage extends StatefulWidget implements InterfacePage {
   Icon _pageIcon = Icon(Icons.add_box);
@@ -21,10 +22,10 @@ class _InitialPageState extends State<InitialPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppTheme.theme.backgroundColor,
-      child: Center(
-          child:
-              Text('SpaceApp', style: TextStyle(color: AppColors.secondary, fontSize: 64))),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: PostCard(),
+      ),
     );
   }
 }
