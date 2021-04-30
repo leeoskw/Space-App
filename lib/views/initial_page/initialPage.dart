@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/theme/appColors.dart';
+import 'package:space_app/theme/themeData.dart';
 import 'package:space_app/views/interfacePage.dart';
 import 'package:space_app/views/postCard.dart';
 
 class InitialPage extends StatefulWidget implements InterfacePage {
-  
   Icon _pageIcon = Icon(Icons.add_box);
   String _pageName = 'Initial';
 
