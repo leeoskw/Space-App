@@ -22,8 +22,8 @@ class _SettingsPageState extends State<SettingsPage> {
     return ListView(
       children: [
         _eventNotificationItem(),
-        // _onlyFavoriteItem(),
-        // _updateFrequencyItem(),
+        _onlyFavoriteItem(),
+        _updateFrequencyItem(),
       ],
     );
   }
@@ -34,17 +34,51 @@ class _SettingsPageState extends State<SettingsPage> {
 
   ListTile _generateSettingsItem() {
     return ListTile(
-    title: Text('Notificação de eventos'),
-    trailing: Switch(
-      value: data.eventNotificationsState,
-      onChanged: (bool value) {setState(() {
-        data.eventNotificationsState = value;
-      });},
-    ),
-  );
+      title: Text('Notificação de eventos'),
+      trailing: Switch(
+        value: data.eventNotificationsState,
+        onChanged: (bool value) {
+          setState(() {
+            data.eventNotificationsState = value;
+          });
+        },
+      ),
+    );
   }
 
-  ListTile _onlyFavoriteItem() {}
+  ListTile _onlyFavoriteItem() {
+    return ListTile(
+      title: Text('Apenas eventos favoritos'),
+      trailing: Switch(
+        value: data.onlyFavoriteState,
+        onChanged: data.eventNotificationsState
+            ? (bool value) {
+                setState(() {
+                  data.onlyFavoriteState = value;
+                });
+              }
+            : null,
+      ),
+    );
+  }
 
-  ListTile _updateFrequencyItem() {}
+  ListTile _updateFrequencyItem() {
+    return ListTile(
+      title: Text('Frequência de atualização'),
+      trailing: DropdownButton(
+        value: data.updateFrequencyValue,
+        items: _generateListItens(),
+        onChanged: (value) {
+          setState(() {
+            data.updateFrequencyValue = value;
+          });
+        },
+      ),
+    );
+  }
+
+  List<DropdownMenuItem<dynamic>> _generateListItens() =>
+      SettingsData.avaliableUpdatesFrequency
+          .map((e) => new DropdownMenuItem(child: Text(e)))
+          .toList();
 }
