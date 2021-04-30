@@ -13,6 +13,18 @@ class AppTheme {
       backgroundColor: AppColors.primary.shade300,
       cardColor: AppColors.primary.shade50,
       primaryIconTheme: IconThemeData(color: AppColors.secondary),
+      appBarTheme: AppBarTheme(
+        textTheme: TextTheme(
+          headline6: TextStyle(
+            color: AppColors.secondary,
+            fontFamily: 'Comfortaa',
+            fontSize: 22,
+          ),
+        ).apply(),
+        elevation: 2,
+        backgroundColor: AppColors.primary.shade600,
+        iconTheme: IconThemeData(color: AppColors.secondary),
+      ),
     );
   }
 }
