@@ -10,8 +10,9 @@ class AppTheme {
       accentColor: AppColors.accent,
       primarySwatch: AppColors.accent,
       primaryColorDark: AppColors.primary,
-      backgroundColor: AppColors.primary.shade50,
-      cardColor: AppColors.primary.shade300,
+      backgroundColor: AppColors.primary.shade300,
+      cardColor: AppColors.primary.shade50,
+      primaryIconTheme: IconThemeData(color: AppColors.secondary),
     );
   }
 }

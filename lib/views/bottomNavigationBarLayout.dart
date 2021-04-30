@@ -26,6 +26,7 @@ class _BottomNavegationBarLayoutState extends State<BottomNavegationBarLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.theme.backgroundColor,
       appBar: AppBar(
         elevation: 2,
         backgroundColor: AppColors.primary.shade600,
