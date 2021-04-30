@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
 
 class PostCard extends StatelessWidget {
+  String _title = "";
+  String _content = "";
+  //foto
+
+  PostCard(String title, String content) {
+    this._title = title;
+    this._content = content;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
       color: Colors.cyan,
       child: ConstrainedBox(
-        // constraints: BoxConstraints(minHeight: 328, minWidth: 214),
         constraints: BoxConstraints(
           minWidth: double.infinity,
         ),
-
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
-                children: [Text("Titulo"), Spacer(), Icon(Icons.star)],
+                children: [
+                  Text(
+                    _title,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  ),
+                  Spacer(),
+                  Icon(Icons.star)
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
@@ -26,7 +40,9 @@ class PostCard extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie mauris vitae est facilisis egestas. "),
+                        _content,
+                        style: TextStyle(fontSize: 17),
+                      ),
                       flex: 5,
                     ),
                     Spacer(
