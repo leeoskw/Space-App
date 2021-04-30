@@ -80,12 +80,7 @@ class _BottomNavegationBarLayoutState extends State<BottomNavegationBarLayout> {
   }
 
   List<Widget> _generateDrawerItemList(BuildContext context) {
-    List<Widget> list = [
-      DrawerHeader(
-        child: Center(child: Text('SpaceApp', style: TextStyle(fontSize: 32))),
-        decoration: BoxDecoration(color: AppColors.accent),
-      )
-    ];
+    List<Widget> list = [_generateDrawerHeader()];
     _drawerItensNames.forEach((item) {
       list.add(new ListTile(
         title: Text(
@@ -98,5 +93,26 @@ class _BottomNavegationBarLayoutState extends State<BottomNavegationBarLayout> {
       ));
     });
     return list;
+  }
+
+  DrawerHeader _generateDrawerHeader() {
+    return DrawerHeader(
+      child: Stack(children: [
+        Align(
+          child: IconButton(
+            icon: Icon(
+              Icons.settings,
+              semanticLabel: 'Ajustes',
+            ),
+            onPressed: () {
+              //TODO: Implementar tela para ajustes
+            },
+          ),
+          alignment: Alignment.topRight,
+        ),
+        Center(child: Text('SpaceApp', style: TextStyle(fontSize: 32)))
+      ]),
+      decoration: BoxDecoration(color: AppColors.accent),
+    );
   }
 }
