@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/model/settingsData.dart';
+import 'package:space_app/theme/appColors.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -65,7 +66,7 @@ class _SettingsPageState extends State<SettingsPage> {
   ListTile _updateFrequencyItem() {
     return ListTile(
       title: Text('Frequência de atualização'),
-      trailing: DropdownButton(
+      trailing: DropdownButton<String>(
         value: data.updateFrequencyValue,
         items: _generateListItens(),
         onChanged: (value) {
@@ -73,12 +74,13 @@ class _SettingsPageState extends State<SettingsPage> {
             data.updateFrequencyValue = value;
           });
         },
+        underline: Container(color: AppColors.accent, height: 2,),
       ),
     );
   }
 
   List<DropdownMenuItem<dynamic>> _generateListItens() =>
       SettingsData.avaliableUpdatesFrequency
-          .map((e) => new DropdownMenuItem(child: Text(e)))
+          .map((e) => new DropdownMenuItem(value: e, child: Text(e)))
           .toList();
 }
