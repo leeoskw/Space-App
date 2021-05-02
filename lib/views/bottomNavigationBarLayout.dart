@@ -3,6 +3,7 @@ import 'package:space_app/theme/appColors.dart';
 import 'package:space_app/theme/themeData.dart';
 import 'package:space_app/views/initial_page/initialPage.dart';
 import 'package:space_app/views/interfacePage.dart';
+import 'package:space_app/views/post_page/postPage.dart';
 
 class BottomNavegationBarLayout extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class BottomNavegationBarLayout extends StatefulWidget {
 class _BottomNavegationBarLayoutState extends State<BottomNavegationBarLayout> {
   int _currentPage = 0;
   List<InterfacePage> _pages = [
-    InitialPage(),
+    PostPage(),
     InitialPage(),
   ];
   List<String> _drawerItensNames = [
