@@ -55,18 +55,9 @@ class PostPageState extends State<PostPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Titulo",
-                    style: AppTheme.postStyle["titleStyle"],
-                  ),
+                  _generateTitle(),
                   SizedBox(height: 20),
-                  Text(
-                    '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu sodales nulla, in dignissim lorem. Donec non ex quis nunc suscipit imperdiet nec sed nisi. Nunc placerat erat a eros efficitur, et volutpat lacus scelerisque. Etiam tempor leo ut pretium scelerisque. Aenean dapibus est at velit elementum, non finibus magna auctor. Donec rutrum lectus eget nunc fringilla mattis. Donec nec posuere metus, ac mattis lectus. Aenean vel urna est. Aliquam venenatis et metus efficitur sodales. Cras pretium volutpat orci ut elementum. Sed mollis in lacus in rhoncus. Donec id rutrum lectus, ut faucibus erat. Nullam et ullamcorper ipsum. Quisque luctus libero eget elit consequat imperdiet. Sed mollis tempor tellus vestibulum sollicitudin. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-
-Aliquam imperdiet odio lectus, ac rutrum sapien dapibus ut. Praesent vitae nunc nunc. Vestibulum vitae congue felis. Cras nibh turpis, rhoncus suscipit vulputate a, tristique quis purus. Suspendisse luctus malesuada neque nec rutrum. Proin lacinia dui et molestie facilisis. Donec at tellus lacus. Nam accumsan nulla et eleifend eleifend. Mauris ultrices nulla rutrum consequat mollis. Cras id leo id eros aliquam blandit. Proin mattis arcu nec urna cursus volutpat. Donec varius ex sit amet fermentum posuere. Praesent eget posuere tellus.''',
-                    style: AppTheme.postStyle["contentStyle"],
-                    textAlign: AppTheme.postStyle["contentJustify"],
-                  )
+                  _generateContentText()
                 ],
               ),
             ),
@@ -76,6 +67,23 @@ Aliquam imperdiet odio lectus, ac rutrum sapien dapibus ut. Praesent vitae nunc 
           SizedBox(height: 20),
         ],
       ),
+    );
+  }
+
+  Text _generateTitle() {
+    return Text(
+      "Titulo",
+      style: AppTheme.postStyle["titleStyle"],
+    );
+  }
+
+  Text _generateContentText() {
+    return Text(
+      '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu sodales nulla, in dignissim lorem. Donec non ex quis nunc suscipit imperdiet nec sed nisi. Nunc placerat erat a eros efficitur, et volutpat lacus scelerisque. Etiam tempor leo ut pretium scelerisque. Aenean dapibus est at velit elementum, non finibus magna auctor. Donec rutrum lectus eget nunc fringilla mattis. Donec nec posuere metus, ac mattis lectus. Aenean vel urna est. Aliquam venenatis et metus efficitur sodales. Cras pretium volutpat orci ut elementum. Sed mollis in lacus in rhoncus. Donec id rutrum lectus, ut faucibus erat. Nullam et ullamcorper ipsum. Quisque luctus libero eget elit consequat imperdiet. Sed mollis tempor tellus vestibulum sollicitudin. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Aliquam imperdiet odio lectus, ac rutrum sapien dapibus ut. Praesent vitae nunc nunc. Vestibulum vitae congue felis. Cras nibh turpis, rhoncus suscipit vulputate a, tristique quis purus. Suspendisse luctus malesuada neque nec rutrum. Proin lacinia dui et molestie facilisis. Donec at tellus lacus. Nam accumsan nulla et eleifend eleifend. Mauris ultrices nulla rutrum consequat mollis. Cras id leo id eros aliquam blandit. Proin mattis arcu nec urna cursus volutpat. Donec varius ex sit amet fermentum posuere. Praesent eget posuere tellus.''',
+      style: AppTheme.postStyle["contentStyle"],
+      textAlign: AppTheme.postStyle["contentJustify"],
     );
   }
 
