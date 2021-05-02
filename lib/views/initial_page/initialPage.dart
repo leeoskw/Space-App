@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/views/interfacePage.dart';
-import 'package:space_app/views/postCard.dart';
+import 'package:space_app/views/initial_page/postCard.dart';
 
 class InitialPage extends StatefulWidget implements InterfacePage {
   final Icon _pageIcon = Icon(Icons.article);
