@@ -9,8 +9,9 @@ class PostCard extends StatefulWidget {
   PostCard(
       {String title = 'Title',
       String content = 'Content',
-      String imageUrl = ''}) {
-    data = PostData(title, content, imageUrl);
+      String imageUrl = '',
+      bool isFavorited = false}) {
+    data = PostData(title, content, imageUrl, isFavorited: isFavorited);
   }
 
   @override
@@ -33,7 +34,7 @@ class _PostCardState extends State<PostCard> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(children: _buildTitle()),
+              Row(children: _buildTitle(context)),
               SizedBox(height: 5),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,15 +47,15 @@ class _PostCardState extends State<PostCard> {
     );
   }
 
-  List<Widget> _buildTitle() {
+  List<Widget> _buildTitle(BuildContext context) {
     return [
       Text(widget.data.title, style: AppTheme.cardStyle['titleStyle']),
       Spacer(),
-      _buildStarButton(),
+      _buildStarButton(context),
     ];
   }
 
-  IconButton _buildStarButton() {
+  IconButton _buildStarButton(BuildContext context) {
     Icon starIcon = data.isFavorited
         ? Icon(Icons.star, color: AppTheme.cardStyle['starColor'])
         : Icon(Icons.star_border);
@@ -64,7 +65,22 @@ class _PostCardState extends State<PostCard> {
         setState(() {
           data.isFavorited = !data.isFavorited;
         });
+        if (!data.isFavorited)
+          ScaffoldMessenger.of(context).showSnackBar(_buildSnackBar());
       },
+    );
+  }
+
+  SnackBar _buildSnackBar() {
+    return SnackBar(
+      content: Text('Item removido dos favoritos'),
+      elevation: 2,
+      duration: Duration(seconds: 5),
+      action: SnackBarAction(label: 'Desfazer', onPressed: () {
+        setState(() {
+          data.isFavorited = !data.isFavorited;
+        });
+      },),
     );
   }
 
