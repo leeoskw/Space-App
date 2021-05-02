@@ -3,6 +3,7 @@ import 'package:space_app/theme/appColors.dart';
 import 'package:space_app/theme/themeData.dart';
 import 'package:space_app/views/initial_page/initialPage.dart';
 import 'package:space_app/views/interfacePage.dart';
+import 'package:space_app/views/settings_page/settingsPage.dart';
 
 class BottomNavegationBarLayout extends StatefulWidget {
   @override
@@ -26,10 +27,8 @@ class _BottomNavegationBarLayoutState extends State<BottomNavegationBarLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.theme.backgroundColor,
       appBar: AppBar(
-        elevation: 2,
-        backgroundColor: AppColors.primary.shade600,
-        iconTheme: IconThemeData(color: AppColors.secondary),
         title: Text('SpaceApp', style: TextStyle(color: AppColors.secondary)),
       ),
       body: _pages[_currentPage],
@@ -79,12 +78,7 @@ class _BottomNavegationBarLayoutState extends State<BottomNavegationBarLayout> {
   }
 
   List<Widget> _generateDrawerItemList(BuildContext context) {
-    List<Widget> list = [
-      DrawerHeader(
-        child: Center(child: Text('SpaceApp', style: TextStyle(fontSize: 32))),
-        decoration: BoxDecoration(color: AppColors.accent),
-      )
-    ];
+    List<Widget> list = [_generateDrawerHeader(context)];
     _drawerItensNames.forEach((item) {
       list.add(new ListTile(
         title: Text(
@@ -97,5 +91,31 @@ class _BottomNavegationBarLayoutState extends State<BottomNavegationBarLayout> {
       ));
     });
     return list;
+  }
+
+  DrawerHeader _generateDrawerHeader(BuildContext context) {
+    return DrawerHeader(
+      child: Stack(children: [
+        Align(
+          child: IconButton(
+            icon: Icon(
+              Icons.settings,
+              semanticLabel: 'Ajustes',
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SettingsPage(),
+                  ));
+            },
+          ),
+          alignment: Alignment.topRight,
+        ),
+        Center(child: Text('SpaceApp', style: TextStyle(fontSize: 32)))
+      ]),
+      decoration: BoxDecoration(color: AppColors.accent),
+    );
   }
 }
