@@ -17,12 +17,12 @@ class InitialPage extends StatefulWidget implements InterfacePage {
 }
 
 class _InitialPageState extends State<InitialPage> {
-  static const paddding = 16.0;
+  static const padding = 16.0;
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(paddding, 0, paddding, 0),
+        padding: const EdgeInsets.fromLTRB(padding, 0, padding, 0),
         child: ListView.builder(
           itemBuilder: (context, index) => new PostCard(),
         ),
