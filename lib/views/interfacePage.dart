@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-class InterfacePage extends Widget {
-  Icon _pageIcon;
-  String _pageName;
-  Icon get pageIcon => _pageIcon;
-  String get pageName => _pageName;
+abstract class InterfacePage extends Widget {
+  Icon get pageIcon;
+  String get pageName;
 
   @override
-  Element createElement() {}
+  Element createElement();
 }

@@ -3,8 +3,8 @@ import 'package:space_app/views/interfacePage.dart';
 import 'package:space_app/views/postCard.dart';
 
 class InitialPage extends StatefulWidget implements InterfacePage {
-  Icon _pageIcon = Icon(Icons.add_box);
-  String _pageName = 'Initial';
+  final Icon _pageIcon = Icon(Icons.add_box);
+  final String _pageName = 'Initial';
 
   @override
   _InitialPageState createState() => _InitialPageState();
