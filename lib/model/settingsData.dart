@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class SettingsData {
   static const avaliableUpdatesFrequency = [
@@ -20,5 +19,10 @@ class SettingsData {
     if (!value) {
       onlyFavoriteState = value;
     }
+  }
+
+  @override
+  String toString() {    
+    return "Settings model:\n\tNotification state: $eventNotificationsState\n\tOnly favorite state: $onlyFavoriteState\n\tFrequency update: $updateFrequencyValue\n";
   }
 }

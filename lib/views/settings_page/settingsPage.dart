@@ -8,7 +8,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  SettingsData data = new SettingsData();
+  static SettingsData data = new SettingsData();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +42,7 @@ class _SettingsPageState extends State<SettingsPage> {
           setState(() {
             data.eventNotificationsState = value;
           });
+          print(data);
         },
       ),
     );
@@ -57,6 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 setState(() {
                   data.onlyFavoriteState = value;
                 });
+                print(data);
               }
             : null,
       ),
@@ -73,8 +75,12 @@ class _SettingsPageState extends State<SettingsPage> {
           setState(() {
             data.updateFrequencyValue = value;
           });
+          print(data);
         },
-        underline: Container(color: AppColors.accent, height: 2,),
+        underline: Container(
+          color: AppColors.accent,
+          height: 2,
+        ),
       ),
     );
   }
