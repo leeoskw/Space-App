@@ -37,4 +37,6 @@ class AppTheme {
   }
 
   static get stylerDrawerText => TextStyle(fontSize: 24);
+  static get postStyle =>
+      {"titleStyle": TextStyle(fontSize: 40, fontWeight: FontWeight.bold), "contentStyle": TextStyle(fontSize: 19), "contentJustify": TextAlign.justify};
 }
