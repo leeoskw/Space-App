@@ -32,6 +32,7 @@ class AppTheme {
     return {
       'titleStyle':TextStyle(color: AppColors.secondary, fontSize: 18),
       'textStyle':TextStyle(color: AppColors.secondary),
+      'starColor': AppColors.accent,
     };
   }
 }
