@@ -5,6 +5,14 @@ class GridCard extends StatefulWidget {
   static const cardPadding = const EdgeInsets.all(8.0);
   AstronautData data;
 
+  GridCard(
+      {String title = 'Title',
+      String content = 'Content',
+      String imageUrl = '',
+      bool isFavorited = false}) {
+    data = AstronautData(title, content, imageUrl, isFavorited: isFavorited);
+  }
+
   @override
   _GridCardState createState() => _GridCardState();
 }
@@ -20,17 +28,9 @@ class _GridCardState extends State<GridCard> {
           child: Padding(
             padding: GridCard.cardPadding,
             child: Stack(
-              children: [_buildAstronautImage()],
+              children: [widget.data.buildImage()],
             ),
           ),
         ));
-  }
-
-  Image _buildAstronautImage() {
-    return Image.network(
-      widget.data.imageUrl,
-      errorBuilder: (context, error, stackTrace) =>
-          Image.asset('assets/images/404.png'),
-    );
   }
 }

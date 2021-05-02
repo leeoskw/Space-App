@@ -91,17 +91,10 @@ class _PostCardState extends State<PostCard> {
       ),
       Spacer(flex: 1),
       Expanded(
-        child: _buildImage(),
+        child: widget.data.buildImage(),
         flex: 3,
       )
     ];
   }
 
-  Image _buildImage() {
-    return Image.network(
-      widget.data.imageUrl,
-      errorBuilder: (context, error, stackTrace) =>
-          Image.asset('assets/images/404.png'),
-    );
-  }
 }

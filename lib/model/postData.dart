@@ -1,8 +1,5 @@
-class PostData {
-  final String title;
-  final String content;
-  final String imageUrl;
-  bool isFavorited;
+import 'defaultCardData.dart';
 
-  PostData(this.title, this.content , this.imageUrl, {this.isFavorited = false});
+class PostData extends DefaultCardData{
+  PostData(String title, String content, String imageUrl, {bool isFavorited = false}) : super(title, content, imageUrl, isFavorited: isFavorited);
 }

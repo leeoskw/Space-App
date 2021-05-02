@@ -1,5 +1,5 @@
-class AstronautData {
-  final String imageUrl;
+import 'defaultCardData.dart';
 
-  AstronautData(this.imageUrl);
+class AstronautData extends DefaultCardData {
+  AstronautData(String title, String content, String imageUrl, {bool isFavorited = false}) : super(title, content, imageUrl, isFavorited: isFavorited);
 }
