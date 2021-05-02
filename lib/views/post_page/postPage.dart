@@ -13,18 +13,21 @@ class PostPage extends StatefulWidget implements InterfacePage {
   }
 
   @override
-  // TODO: implement pageIcon
   Icon get pageIcon => _pageIcon;
 
   @override
-  // TODO: implement pageName
   String get pageName => _pageName;
 }
 
 class PostPageState extends State<PostPage> {
   @override
   Widget build(BuildContext context) {
-    return post();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Ajustes'),
+      ),
+      body: post(),
+    );
   }
 
   Widget post() {
