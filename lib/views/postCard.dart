@@ -6,7 +6,6 @@ class PostCard extends StatelessWidget {
   static const TextStyle titletStyle =
       TextStyle(color: AppColors.secondary, fontSize: 18);
   static const TextStyle textStyle = TextStyle(color: AppColors.secondary);
-
   @override
   Widget build(BuildContext context) {
     return Card(
