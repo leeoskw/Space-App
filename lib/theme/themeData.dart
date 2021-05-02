@@ -14,4 +14,7 @@ class AppTheme {
       cardColor: AppColors.primary.shade300,
     );
   }
+
+  static get postStyle =>
+      {"titleStyle": TextStyle(fontSize: 40, fontWeight: FontWeight.bold), "contentStyle": TextStyle(fontSize: 19), "contentJustify": TextAlign.justify};
 }
