@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/theme/appColors.dart';
 import 'package:space_app/theme/themeData.dart';
 import 'package:space_app/views/interfacePage.dart';
 
@@ -70,8 +71,11 @@ Aliquam imperdiet odio lectus, ac rutrum sapien dapibus ut. Praesent vitae nunc 
               ),
             ),
           ),
+          SizedBox(height: 20),
+          generateElevatedButton(),
+          SizedBox(height: 20),
         ],
-      ), // Foto post + estrela,
+      ),
     );
   }
 
@@ -89,6 +93,44 @@ Aliquam imperdiet odio lectus, ac rutrum sapien dapibus ut. Praesent vitae nunc 
         height: 200.0,
       ),
       child: generateImage(),
+    );
+  }
+
+  generateElevatedButton() {
+    return ElevatedButton(
+      child: Text("Mais Informações"),
+      style: ElevatedButton.styleFrom(
+          primary: AppColors.accent,
+          onPrimary: Colors.black,
+          elevation: 3,
+          enableFeedback: true),
+      onPressed: () {
+        showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return Container(
+                child: bottomNavigationMenu(),
+                height: 150,
+              );
+            });
+      },
+    );
+  }
+
+  Column bottomNavigationMenu() {
+    return Column(
+      children: [
+        ListTile(
+          title: Text("Opção 01"),
+          leading: Icon(Icons.ac_unit),
+          onTap: () => Navigator.pop(context),
+        ),
+        ListTile(
+          title: Text("Opção 02"),
+          leading: Icon(Icons.ac_unit),
+          onTap: () => Navigator.pop(context),
+        )
+      ],
     );
   }
 }
