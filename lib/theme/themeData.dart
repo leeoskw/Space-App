@@ -28,6 +28,15 @@ class AppTheme {
     );
   }
 
+  static get cardStyle {
+    return {
+      'titleStyle': TextStyle(color: AppColors.secondary, fontSize: 18),
+      'textStyle': TextStyle(color: AppColors.secondary),
+      'starColor': AppColors.accent,
+    };
+  }
+
+  static get stylerDrawerText => TextStyle(fontSize: 24);
   static get postStyle =>
       {"titleStyle": TextStyle(fontSize: 40, fontWeight: FontWeight.bold), "contentStyle": TextStyle(fontSize: 19), "contentJustify": TextAlign.justify};
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/theme/appColors.dart';
 import 'package:space_app/theme/themeData.dart';
+import 'package:space_app/views/astronauts_page/astronautsPage.dart';
+import 'package:space_app/views/favorite_page/favoritePage.dart';
 import 'package:space_app/views/initial_page/initialPage.dart';
 import 'package:space_app/views/interfacePage.dart';
 import 'package:space_app/views/post_page/postPage.dart';
@@ -15,15 +17,15 @@ class BottomNavegationBarLayout extends StatefulWidget {
 class _BottomNavegationBarLayoutState extends State<BottomNavegationBarLayout> {
   int _currentPage = 0;
   List<InterfacePage> _pages = [
-    PostPage(),
     InitialPage(),
+    FavoritePage(),
   ];
-  List<String> _drawerItensNames = [
-    'astronautas',
-    'agências',
-    'eventos',
-    'ISS',
-  ];
+  Map<String, Object> _drawerItensNames = {
+    'astronautas': AstronautsPage(),
+    'agências': null,
+    'eventos': null,
+    'ISS': null,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -80,14 +82,13 @@ class _BottomNavegationBarLayoutState extends State<BottomNavegationBarLayout> {
 
   List<Widget> _generateDrawerItemList(BuildContext context) {
     List<Widget> list = [_generateDrawerHeader(context)];
-    _drawerItensNames.forEach((item) {
+    _drawerItensNames.forEach((key, item) {
       list.add(new ListTile(
-        title: Text(
-          item,
-          style: TextStyle(fontSize: 24),
-        ),
+        title: Text(key, style: AppTheme.stylerDrawerText),
         onTap: () {
           Navigator.pop(context);
+          Navigator.push(context,
+              MaterialPageRoute(builder: (BuildContext context) => item));
         },
       ));
     });
