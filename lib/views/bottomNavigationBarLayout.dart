@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/theme/appColors.dart';
 import 'package:space_app/theme/themeData.dart';
+import 'package:space_app/views/favorite_page/favoritePage.dart';
 import 'package:space_app/views/initial_page/initialPage.dart';
 import 'package:space_app/views/interfacePage.dart';
 import 'package:space_app/views/settings_page/settingsPage.dart';
@@ -15,7 +16,7 @@ class _BottomNavegationBarLayoutState extends State<BottomNavegationBarLayout> {
   int _currentPage = 0;
   List<InterfacePage> _pages = [
     InitialPage(),
-    InitialPage(),
+    FavoritePage(),
   ];
   List<String> _drawerItensNames = [
     'astronautas',

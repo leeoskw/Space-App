@@ -9,8 +9,8 @@ class PostCard extends StatefulWidget {
   PostCard(
       {String title = 'Title',
       String content = 'Content',
-      String imageUrl = ''}) {
-    data = PostData(title, content, imageUrl);
+      String imageUrl = '', bool isFavorited = false}) {
+    data = PostData(title, content, imageUrl, isFavorited:isFavorited);
   }
 
   @override
