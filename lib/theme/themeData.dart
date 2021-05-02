@@ -30,9 +30,11 @@ class AppTheme {
 
   static get cardStyle {
     return {
-      'titleStyle':TextStyle(color: AppColors.secondary, fontSize: 18),
-      'textStyle':TextStyle(color: AppColors.secondary),
+      'titleStyle': TextStyle(color: AppColors.secondary, fontSize: 18),
+      'textStyle': TextStyle(color: AppColors.secondary),
       'starColor': AppColors.accent,
     };
   }
+
+  static get stylerDrawerText => TextStyle(fontSize: 24);
 }

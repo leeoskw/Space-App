@@ -15,13 +15,11 @@ class PostCard extends StatefulWidget {
   }
 
   @override
-  _PostCardState createState() => _PostCardState(data);
+  _PostCardState createState() => _PostCardState();
 }
 
 class _PostCardState extends State<PostCard> {
-  final PostData data;
-  _PostCardState(this.data);
-
+  
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -56,16 +54,16 @@ class _PostCardState extends State<PostCard> {
   }
 
   IconButton _buildStarButton(BuildContext context) {
-    Icon starIcon = data.isFavorited
+    Icon starIcon = widget.data.isFavorited
         ? Icon(Icons.star, color: AppTheme.cardStyle['starColor'])
         : Icon(Icons.star_border);
     return IconButton(
       icon: starIcon,
       onPressed: () {
         setState(() {
-          data.isFavorited = !data.isFavorited;
+          widget.data.isFavorited = !widget.data.isFavorited;
         });
-        if (!data.isFavorited)
+        if (!widget.data.isFavorited)
           ScaffoldMessenger.of(context).showSnackBar(_buildSnackBar());
       },
     );
@@ -78,7 +76,7 @@ class _PostCardState extends State<PostCard> {
       duration: Duration(seconds: 5),
       action: SnackBarAction(label: 'Desfazer', onPressed: () {
         setState(() {
-          data.isFavorited = !data.isFavorited;
+          widget.data.isFavorited = !widget.data.isFavorited;
         });
       },),
     );
@@ -93,17 +91,10 @@ class _PostCardState extends State<PostCard> {
       ),
       Spacer(flex: 1),
       Expanded(
-        child: _buildImage(),
+        child: widget.data.buildImage(),
         flex: 3,
       )
     ];
   }
 
-  Image _buildImage() {
-    return Image.network(
-      widget.data.imageUrl,
-      errorBuilder: (context, error, stackTrace) =>
-          Image.asset('assets/images/404.png'),
-    );
-  }
 }
