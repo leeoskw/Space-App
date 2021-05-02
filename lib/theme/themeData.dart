@@ -27,4 +27,11 @@ class AppTheme {
       ),
     );
   }
+
+  static get cardStyle {
+    return {
+      'titleStyle':TextStyle(color: AppColors.secondary, fontSize: 18),
+      'textStyle':TextStyle(color: AppColors.secondary),
+    };
+  }
 }

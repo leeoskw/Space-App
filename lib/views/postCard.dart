@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:space_app/theme/appColors.dart';
 import 'package:space_app/theme/themeData.dart';
 
 class PostCard extends StatelessWidget {
-  static const TextStyle titletStyle =
-      TextStyle(color: AppColors.secondary, fontSize: 18);
-  static const TextStyle textStyle = TextStyle(color: AppColors.secondary);
   static const cardPadding = const EdgeInsets.all(16.0);
 
   @override
@@ -21,12 +17,10 @@ class PostCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(children: _buildTitle()),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: _buildContent(),
-                ),
+              SizedBox(height: 5),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: _buildContent(),
               )
             ],
           ),
@@ -37,7 +31,7 @@ class PostCard extends StatelessWidget {
 
   List<Widget> _buildTitle() {
     return [
-      Text("Titulo", style: titletStyle),
+      Text("Titulo", style: AppTheme.cardStyle['titleStyle']),
       Spacer(),
       IconButton(
         icon: Icon(Icons.star),
@@ -49,17 +43,12 @@ class PostCard extends StatelessWidget {
   List<Widget> _buildContent() {
     return [
       Expanded(
-        child: Title(
-          color: AppColors.secondary,
-          child: Text(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie mauris vitae est facilisis egestas. ",
-              style: textStyle),
-        ),
+        child: Text(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie mauris vitae est facilisis egestas. ",
+            style: AppTheme.cardStyle['textStyle']),
         flex: 5,
       ),
-      Spacer(
-        flex: 1,
-      ),
+      Spacer(flex: 1),
       Expanded(
         child: _buildImage(),
         flex: 3,
@@ -73,6 +62,5 @@ class PostCard extends StatelessWidget {
       errorBuilder: (context, error, stackTrace) =>
           Image.asset('assets/images/404.png'),
     );
-    // return Image.asset('assets/images/404.png');
   }
 }
