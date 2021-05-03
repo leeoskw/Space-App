@@ -23,8 +23,8 @@ class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => PostPage())),
+      onTap: () => Navigator.push(context,
+          MaterialPageRoute(builder: (context) => PostPage(widget.data))),
       child: Card(
         color: AppTheme.theme.cardColor,
         elevation: 2,
